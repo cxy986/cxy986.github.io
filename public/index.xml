@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>我的第一个博客</title>
+		<link>http://localhost:1313/</link>
+		<description>Recent content on 我的第一个博客</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>http://localhost:1313/posts/first-post/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/first-post/</guid>
+				<description>&lt;p&gt;-&amp;ndash;&lt;/p&gt;&#xA;&lt;p&gt;title: &amp;ldquo;我的第一篇文章&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;date: 2026-09-08&lt;/p&gt;&#xA;&lt;p&gt;draft: false&lt;/p&gt;&#xA;&lt;p&gt;-&amp;ndash;&lt;/p&gt;&#xA;&lt;p&gt;# 欢迎来到我的博客&lt;/p&gt;&#xA;&lt;p&gt;这是我从零搭建的第一篇博客文章。&lt;/p&gt;&#xA;&lt;p&gt;以后我会在这里记录：&lt;/p&gt;&#xA;&lt;p&gt;- 网络安全学习&lt;/p&gt;&#xA;&lt;p&gt;- CTF 题目分析&lt;/p&gt;&#xA;&lt;p&gt;- 编程学习过程&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
