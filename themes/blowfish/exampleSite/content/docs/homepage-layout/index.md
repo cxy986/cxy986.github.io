@@ -1,0 +1,122 @@
+---
+title: "Homepage Layout"
+featureimage: "images/v3/homepage-layout.png"
+weight: 5
+draft: false
+description: "Configuring the homepage layout in the Blowfish theme."
+slug: "homepage-layout"
+tags: ["homepage", "layouts", "docs"]
+series: ["Documentation"]
+series_order: 5
+---
+
+Blowfish provides flexible homepage layouts with settings to adjust each design. Alternatively, you can also provide your own template and have complete control over the homepage content.
+
+The layout of the homepage is controlled by the `homepage.layout` setting in the `params.toml` configuration file. Additionally, all layouts have the option to include a listing of [recent articles](#recent-articles).
+
+## Profile layout
+
+The default layout is the profile layout, which is great for personal websites and blogs. It puts the author's details front and centre by providing an image and links to social profiles.
+
+{{< figure src="img/home-profile.png" class="thumbnailshadow" >}}
+
+The author information is provided in the languages configuration file. Refer to the [Getting Started]({{< ref "getting-started" >}}) and [Language Configuration]({{< ref "configuration##language-and-i18n" >}}) sections for parameter details.
+
+Additionally, any Markdown content that is provided in the homepage content will be placed below the author profile. This allows extra flexibility for displaying a bio or other custom content using shortcodes.
+
+To enable the Profile layout, set `homepage.layout = "profile"` in the `params.toml` configuration file.
+
+## Page layout
+
+The page layout is simply a normal content page that displays your Markdown content. It's great for static websites and provides a lot of flexibility.
+
+{{< figure src="img/home-page.png" class="thumbnailshadow" >}}
+
+To enable the Page layout, set `homepage.layout = "page"` in the `params.toml` configuration file.
+
+## Hero layout
+
+The hero layout brings together ideas from the profile and card layouts. This one not only displays information on the author of the site but it also loads your markdown beneath it.
+
+{{< figure src="img/home-hero.png" class="thumbnailshadow" >}}
+
+To enable the Hero layout, set `homepage.layout = "hero"` and `homepage.homepageImage` in the `params.toml` configuration file.
+
+## Background layout
+
+The background layout is a more smooth version of the hero layout. As in the Hero layout, this one also displays both information on the author of the site and loads your markdown beneath it.
+
+{{< figure src="img/home-background.png" class="thumbnailshadow" >}}
+
+To enable the Background layout, set `homepage.layout = "background"` and `homepage.homepageImage` in the `params.toml` configuration file.
+
+## Card layout
+
+The card layout is an extension of the page layout. It provides the same level of flexibility by also displaying your markdown content and adds a card image to display visual content.
+
+{{< figure src="img/home-card.png" class="thumbnailshadow" >}}
+
+To enable the Card layout, set `homepage.layout = "card"` and `homepage.homepageImage` in the `params.toml` configuration file. 
+
+## Landing layout
+
+The Landing layout is designed for product sites, documentation hubs, and personal sites that need a stronger opening statement. It opens with a spacious, editorial hero — eyebrow, statement headline, lead paragraph, and call-to-action buttons — optionally backed by a full-width hero image that dissolves into the global background, with a staggered entrance animation that is disabled automatically for visitors who prefer reduced motion. Everything below the hero is standard Markdown and Blowfish shortcodes, so the full page stays portable and easy to maintain.
+
+{{< figure src="img/home-landing.png" class="thumbnailshadow" >}}
+
+To enable the Landing layout, set `homepage.layout = "landing"` in the `params.toml` configuration file.
+
+The hero is driven by the front matter of `content/_index.md`. All fields are optional — anything you leave out is simply not rendered:
+
+```yaml
+---
+title: "Build a site that feels unmistakably yours."
+heroCaption: "Blowfish" # eyebrow above the title; defaults to the author name
+heroLead: "A short statement that expands on the title."
+heroButtons:
+  - label: "Get started"
+    url: "/docs/installation/"
+  - label: "Explore the docs"
+    url: "/docs/"
+    style: "outline" # "primary" (default) or "outline"
+---
+```
+
+| Front matter | Description |
+| ------------ | ----------- |
+| `heroCaption` | Small uppercase eyebrow above the title. Defaults to `params.Author.name`. |
+| `heroLead` | Lead paragraph rendered under the title. Supports Markdown. |
+| `heroButtons` | List of call-to-action buttons (`label`, `url`, and optional `style`). Uses the same styling as the [`cta` shortcode]({{< ref "shortcodes#cta-button" >}}). |
+
+The Markdown body of `_index.md` renders below the hero, so stats, feature grids, steps, and any other shortcodes can build out the rest of the page. The Landing layout pairs well with the site-wide `backgroundCanvas` option described in the [Configuration docs]({{< ref "configuration" >}}).
+
+
+## Custom layout
+
+If the built-in homepage layouts aren't sufficient for your needs, you have the option to provide your own custom layout. This allows you to have total control over the page content and essentially gives you a blank slate to work with.
+
+To enable the Custom layout, set `homepage.layout = "custom"` in the `params.toml` configuration file.
+
+With the configuration value set, create a new `custom.html` file and place it in `layouts/partials/home/custom.html`. Now whatever is in the `custom.html` file will be placed in the content area of the site homepage. You may use whatever HTML, Tailwind, or Hugo templating functions you wish to define your layout.
+
+To include [recent articles](#recent-articles) on the custom layout, use the `recent-articles/main.html` partial.
+
+The included example site uses the built-in Landing layout and standard content shortcodes. Visit the [GitHub repo](https://github.com/nunocoracao/blowfish/tree/main/exampleSite) to see how it is configured.
+
+## Recent articles
+
+All homepage layouts have the option of displaying recent articles below the main page content. To enable this, simply set the `homepage.showRecent` setting to `true` in the `params.toml` configuration file.
+
+{{< figure src="img/home-list.png" class="thumbnailshadow" >}}
+
+The articles listed in this section are derived from the `mainSections` setting which allows for whatever content types you are using on your website. For instance, if you had content sections for _posts_ and _projects_ you could set this setting to `["posts", "projects"]` and all the articles in these two sections would be used to populate the recent list. The theme expects this setting to be an array so if you only use one section for all your content, you should set this accordingly: `["blog"]`.
+
+## Thumbnails
+
+Blowfish was built so it would be easy to add visual support to your articles. If you're familiar with Hugo article structure, you just need to place an image file (almost all formats are supported bue we recommend `.png` or `.jpg`) that starts with `feature*` inside your article folder. And that's it, Blowfish will then able to both use the image as a thumbnail within your website as well as for <a target="_blank" href="https://oembed.com/">oEmbed</a> cards across social platforms. 
+
+[Here]({{< ref "thumbnails" >}}) is a guide with more info and a [sample]({{< ref "thumbnail_sample" >}}) if you want to see an example.
+
+## Card Gallery
+
+Blowfish also supports displaying the standard lists of articles as card galleries. You can config this both for the recent section in the homepage and for lists of articles across your website. For homepage you can use `homepage.cardView` and `homepage.cardViewScreenWidth`; and for lists use `list.cardView` and `list.cardViewScreenWidth`. Check the [Configuration docs]({{< ref "configuration" >}}) for more details, and the homepage for a live demo.

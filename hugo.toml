@@ -1,4 +1,4 @@
 baseURL = "http://localhost:1313/"
 languageCode = "zh-cn"
 title = "我的第一个博客"
-theme = "ananke"
+theme = "blowfish"
