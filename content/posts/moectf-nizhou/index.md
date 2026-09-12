@@ -18,7 +18,7 @@ draft: false
 
 咋确认是sql注入就不写了
 
-##构造payload
+## 构造payload
 排除sqlite试mysql
 指纹函数确认mysql
 
@@ -32,7 +32,7 @@ draft: false
 打个比方：图书馆的索引柜。你找书不会一本本翻书架，而是先查索引卡片 —— information_schema 就是那排卡片柜。
 
 `0 UNION SELECT 1,'x',table_name FROM information_schema.tables WHERE table_schema='past_paper'`
-SELECT 1,'x',table_name看库里有什么表名，FROM information_schema.tables是从索引柜的"书名目录"里查， WHERE table_schema='past_paper'`只看这个库，table_name装表名的那个列
+SELECT 1,'x',table_name看库里有什么表名，FROM information_schema.tables是从索引柜的"书名目录"里查， WHERE table_schema='past_paper'只看这个库，table_name装表名的那个列
 
 输入payload
 
