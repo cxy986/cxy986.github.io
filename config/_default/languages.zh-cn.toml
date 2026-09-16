@@ -13,7 +13,7 @@ title = "我的网络安全博客"
 
 [params.author]
   name = "芙宁娜"
-  image = "img/blowfish_logo.png"
+  image = "img/furina.jpg"
   headline = "网络安全 / CTF / 编程学习"
   bio = "记录我的网络安全学习与实践。"
   links = [
