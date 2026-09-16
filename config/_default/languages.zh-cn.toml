@@ -8,7 +8,7 @@ title = "我的网络安全博客"
   isoCode = "zh-cn"
   rtl = false
   dateFormat = "2006-01-02"
-  logo = "img/blowfish_logo_transparent.png"
+  logo = "img/furina-logo.png"
   description = "记录网络安全、CTF 与编程学习。"
 
 [params.author]

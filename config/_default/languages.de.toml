@@ -8,12 +8,12 @@ title = "Blowfish"
   isoCode = "de"
   rtl = false
   dateFormat = "2. January 2006"
-  logo = "img/blowfish_logo_transparent.png"
+  logo = "img/furina-logo.png"
   description = "Ein leistungsstarkes, leichtgewichtiges Theme für Hugo."
 
 [params.author]
   name = "Blowfish"
-  image = "img/blowfish_logo.png"
+  image = "img/furina.jpg"
   headline = "Ein leistungsstarkes, leichtgewichtiges Theme für Hugo."
   bio = "Ein leistungsstarkes, leichtgewichtiges Theme für Hugo."
   links = [
