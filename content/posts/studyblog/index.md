@@ -38,3 +38,6 @@ burp的话我已经实操过了
 <img width="1139" height="662" alt="6" src="https://github.com/user-attachments/assets/df1f212a-9411-4df6-9c07-b34eb4762aaf" />
 大概就是看源码，看请求，改用户身份（从user改成admin），看cookie，控制台这几个常用
 
+
+以后会继续学习的，看能不能把moectf的web方向全过了（绝对不是因为想看群主女装）
+
