@@ -1,0 +1,81 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+
+  {{/* 取 mainSections（即 posts）下的全部文章，按日期倒序 */}}
+  {{ $sections := site.Params.mainSections | default (slice "posts") }}
+  {{ $pages := where site.RegularPages "Section" "in" $sections }}
+  {{ $pages = $pages.ByDate.Reverse }}
+
+  {{/* 没有 date 的文章，Hugo 会把它们算进 0001 年，这里单独挑出来 */}}
+  {{ $undated := slice }}
+  {{ range $pages }}
+    {{ if .Date.IsZero }}{{ $undated = $undated | append . }}{{ end }}
+  {{ end }}
+
+  {{/* Header */}}
+  <header class="mt-5">
+    {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title | emojify }}
+    </h1>
+    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      共 {{ len $pages }} 篇 · 按年份归档
+    </div>
+  </header>
+
+  {{/* 页面正文（如果 archives.md 里写了内容就渲染出来） */}}
+  {{ with .Content }}
+    <section class="mt-0 mb-10 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      <div class="min-w-0 min-h-0 max-w-prose w-full">{{ . }}</div>
+    </section>
+  {{ end }}
+
+  {{/* 按年份归档 */}}
+  {{ if $pages }}
+    <section class="archive space-y-10 w-full">
+      {{ range $pages.GroupByDate "2006" }}
+        {{ if ne .Key "0001" }}
+          <div class="archive-year">
+            <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+              {{ .Key }} 年<span class="archive-count">（{{ len .Pages }} 篇）</span>
+            </h2>
+            <ul class="archive-list mt-4">
+              {{ range .Pages }}
+                <li class="archive-item">
+                  <time class="archive-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{- .Date.Format "01-02" -}}
+                  </time>
+                  <a class="archive-link" href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+      {{ end }}
+
+      {{ if $undated }}
+        <div class="archive-year">
+          <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+            未标注日期<span class="archive-count">（{{ len $undated }} 篇）</span>
+          </h2>
+          <ul class="archive-list mt-4">
+            {{ range $undated }}
+              <li class="archive-item">
+                <span class="archive-date">--</span>
+                <a class="archive-link" href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </section>
+  {{ else }}
+    <section class="mt-10 prose dark:prose-invert">
+      <p class="py-8 border-t">
+        <em>{{ i18n "list.no_articles" | emojify }}</em>
+      </p>
+    </section>
+  {{ end }}
+{{ end }}

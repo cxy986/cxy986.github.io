@@ -1,0 +1,78 @@
+/* ============================================================
+   归档页 /archives/ 专用样式
+   全部限定在 .archive-* 命名空间内，不会影响文章页和其它列表页。
+   颜色沿用主题的 CSS 变量（跟站点配色方案联动，换配色会自动跟着变）。
+   ============================================================ */
+
+/* 年份标题：年份和篇数排在一行 */
+.archive-year > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* 年份后面的“（N 篇）” */
+.archive-count {
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* 时间轴：左边一条竖线 */
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid rgba(var(--color-neutral-500), 0.25);
+}
+
+/* 每一条：日期 + 标题 */
+.archive-item {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.3rem 0 0.3rem 1rem;
+}
+
+/* 竖线上的小圆点 */
+.archive-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.75em;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: rgba(var(--color-primary-500), 1);
+}
+
+/* 日期：等宽字体 + 数字对齐 */
+.archive-date {
+  flex: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+/* 标题链接：平时不画线，鼠标悬停才出现下划线 */
+.archive-link {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.archive-link:hover {
+  border-bottom-color: rgba(var(--color-primary-500), 1);
+}
+
+@media (max-width: 480px) {
+  .archive-item {
+    gap: 0.5rem;
+    padding-left: 0.75rem;
+  }
+}

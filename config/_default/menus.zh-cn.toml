@@ -11,6 +11,11 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
+  name = "归档"
+  pageRef = "archives"
+  weight = 5
+
+[[main]]
   name = "文档"
   pageRef = "docs"
   weight = 10
