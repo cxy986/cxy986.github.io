@@ -250,7 +250,8 @@ TM的你不赎她身你撩你冯啊，宁愿花几千两见女一就不愿意花
 
 然后在他俩下次约会。。。
 
-<img width="1428" height="616" alt="IMG_20261003_115918" src="https://github.com/user-attachments/assets/2438042b-1005-4f86-a3f3-4a73d933c617" />
+<img width="1440" height="564" alt="68ae09232d7c4ebff8fc2d8c54626881" src="https://github.com/user-attachments/assets/6df6d1f1-2082-4b80-8f50-d78fbed1aa93" />
+
 
 林便为了男主花销，这是真情？还是假意？
 
