@@ -1,6 +1,6 @@
 ---
 title: "misc修复图片"
-date: 2026-10-8
+date: 2026-10-08
 draft: false
 ---
 

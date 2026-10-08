@@ -1,6 +1,6 @@
 ---
 title: "垂直越权"
-date: 2026-10-5
+date: 2026-10-05
 draft: false
 ---
 
