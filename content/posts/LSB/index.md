@@ -27,3 +27,20 @@ draft: false
 看看像素数据
 
 由此得出今天主题lsb图片最低位隐写
+
+原理为最低位是最不起眼的那一位，只改那个人肉眼几乎看不出来
+
+打开stepsolve工具进行数据分析
+
+<img width="356" height="275" alt="image" src="https://github.com/user-attachments/assets/3c0d014f-99d2-44ff-b1bc-a2c69907460a" />
+
+没有，怪了，后来发现alpha是恒定的，关掉α0
+
+果然得到隐写的东西
+
+<img width="351" height="119" alt="image" src="https://github.com/user-attachments/assets/f427a26c-522f-4fc2-9003-946f8c107519" />
+
+
+后面有个=长得像base64
+
+解码
