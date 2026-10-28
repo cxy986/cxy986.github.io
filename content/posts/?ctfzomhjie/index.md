@@ -1,6 +1,6 @@
 ---
 title: "?ctf web和misc总结复盘"
-date: 2026-10-18
+date: 2026-10-28
 draft: false
 ---
 还记得自己是七月中旬得知自己被网安专业录取开始鼓捣这方面的知识
@@ -83,7 +83,7 @@ def audit_decode(raw):
     value = json.loads(raw.decode("utf-8"), object_pairs_hook=audit_pairs)
 
 def checkout_decode(raw):
-    value = json.loads(raw.decode("utf-8"))   # 原生解析，重复键保留最后一个
+    value = json.loads(raw.decode("utf-8"))   # 重复键保留最后一个
 ```
 
 审批用audit_decode（第一个赢），结算用checkout_decode（最后一个赢），同一段文字念出两个意思。
@@ -203,7 +203,7 @@ PNG题，先看文件结构，头和尾都正常，像个平平无奇的图片�
 
 复盘：LSB改的是最低位，肉眼看不出差别；做隐写题的时候通道要一个个试，别默认所有通道都有信息。
 
-## 其他
+
 
 ### git历史操作
 
@@ -227,17 +227,17 @@ git stash list、git show、git fsck --lost-found，把那些"不该看到"的bl
 
 复盘：以太坊这套东西，理解了"私钥签名、节点只负责广播"之后就没那么玄了。keccak256 + RLP + 一次HTTP POST，这就是上链。
 
-## 复盘：这一轮到底学到了啥
+## 复盘：
 
-1. 先看再动手。以前看见"加密"就爆破，看见"登录"就sqlmap；现在会先看文件结构、看源码、看报错。?ctf这几道题里，真正需要爆破的其实只有一道。
+1. 也是把看见加密就爆破的毛病改了，现在会先看文件结构、看源码了，?ctf这几道题里，真正需要爆破的其实只有一道。
 
-2. 客户端不可信。cookie、UA、代理、前端校验，全都只是"表演"，真正的判断必须在服务端。
+2. 客户端不可信。cookie、UA、代理、前端校验，都不是真正的安全，真正的判断必须在服务端。
 
-3. 解析器不一致就是漏洞。同一段JSON，一个保留第一个键，一个保留最后一个，这就是关键
+3. 解析器不一致就是漏洞。同一段JSON，一个保留第一个键，一个保留最后一个，这就是漏洞
 
-4. 信息泄露是第一生产力。注释里的?name=lain、没删的sourcemap、能直接访问的/src、ID3标签、stash，都是同一类东西：作者忘了收走。
+4. 信息泄露，注释里的?name=lain、没删的sourcemap、能直接访问的/src、ID3标签、stash
 
-5. 工具是肌肉记忆。curl的-c/-b、imhex、stegsolve、zip2john、hashcat、git，用得多了就不用现查。
+5. 工具要练成肌肉记忆。curl的-c/-b、imhex、stegsolve、zip2john、hashcat、git，用得多了就不用现查。
 
 6.？ctf和群里的其他新手赛我这接下来的一个月应该是不会再打了，这次？ctf也是让我意识到了自己的不足，也就是搓脚板能力几乎为零，我想先沉淀一下
 
@@ -247,4 +247,6 @@ git stash list、git show、git fsck --lost-found，把那些"不该看到"的bl
 
 
 
-至于AI...用它查概念、写脚本骨架、解释报错是真的香，但结论一定要自己验证一遍，它说的"没问题"最好自己再看一遍。
+至于AI...用它查概念、写脚本骨架、解释报错是真的香，但结论一定要自己验证一遍，它说的"没问题"最好自己再看一遍。byd还记得为了玩黑猴差点给我自己电脑干废了
+
+还有些东西没写sql注入，PHP伪协议文件包含，SSRF，原型链污染啊啥的，那些是moectf的，emmmm这个月就学了这些吗？很难想象自己总结了一遍总感觉东西很少
